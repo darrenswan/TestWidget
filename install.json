@@ -1,0 +1,155 @@
+{
+    "resources": {
+        "head": [
+            {
+                "type": "script",
+                "src": "./testwidget.js"
+            }
+        ],
+        "body": [
+            {
+                "type": "script",
+                "contents": "<test-widget widgetid=\"{{ app.widgetid }}\" class=\"trvpro-widget\"></test-widget>"
+            }
+        ]
+    },
+    "options": {
+        "properties": {
+            "Display": {
+                "order": 1,
+                "category": "Display",
+                "title": "Display Setting",
+                "description": "How do you want the widget to display with other content on the page.",
+                "type": "string",
+                "enum": [
+                    "inline-block",
+                    "block"
+                ],
+                "enumNames": {
+                    "inline-block": "Inline with other text",
+                    "block": "Fill the container"
+                },
+                "default": "inline-block"
+            },
+            "Padding": {
+                "order": 2,
+                "category": "Display",
+                "title": "Padding",
+                "description": "How many pixels padding around the text.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 20,
+                "default": 0
+            },
+            "FontFamily": {
+                "order": 3,
+                "category": "Display",
+                "title": "Font Family",
+                "description": "Select the font family to use for the text.",
+                "type": "string",
+                "enum": [
+                    "Arial, Helvetica, sans-serif",
+                    "Courier New, Courier, monospace",
+                    "Times New Roman, Times, serif",
+                    "Montserrat"
+                ],
+                "default": "Arial, Helvetica, sans-serif"
+            },
+            "FontSize": {
+                "order": 4,
+                "category": "Display",
+                "title": "Font Size",
+                "description": "Set the font size of the text.",
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 40,
+                "default": 15
+            },
+
+            "BgColour": {
+                "order": 10,
+                "category": "Colours",
+                "title": "Background Colour",
+                "description": "Colour of the widget background (leave blank for transparent).",
+                "type": "string",
+                "format": "color",
+                "default": ""
+            },
+            "TxtColour": {
+                "order": 11,
+                "category": "Colours",
+                "title": "Text Colour",
+                "description": "Colour of the text.",
+                "type": "string",
+                "format": "color",
+                "default": "#000000"
+            },
+
+            "Content": {
+                "order": 20,
+                "category": "Content",
+                "title": "Widget Content",
+                "description": "Enter the content to show.",
+                "type": "string",
+                "format": "html",
+                "default": ""
+            },
+            "TextTest": {
+                "order": 21,
+                "category": "Content",
+                "title": "Text Field",
+                "description": "This is an example of a standard text field (it is not used in the widget).",
+                "type": "string",
+                "maxlength": 25,
+                "default": ""
+            },
+            "EmailTest": {
+                "order": 22,
+                "category": "Content",
+                "title": "Email Field",
+                "description": "This is an example of an email field (it is not used in the widget).",
+                "placeholder": "user@domain.com",
+                "type": "string",
+                "format": "email",
+                "default": ""
+            },
+            "DateTest": {
+                "order": 23,
+                "category": "Content",
+                "title": "Date Field",
+                "description": "This is an example of a date field (it is not used in the widget).",
+                "type": "string",
+                "format": "date",
+                "default": ""
+            },
+            "TimeTest": {
+                "order": 24,
+                "category": "Content",
+                "title": "Time Field",
+                "description": "This is an example of a time field (it is not used in the widget).",
+                "type": "string",
+                "format": "time",
+                "default": ""
+            },
+            "BooleanTest": {
+                "order": 25,
+                "category": "Content",
+                "title": "Boolean Field",
+                "description": "This is an example of a boolean field (it is not used in the widget).",
+                "type": "boolean",
+                "default": false
+            },
+            "UrlTest": {
+                "order": 26,
+                "category": "Content",
+                "title": "Url Field",
+                "description": "This is an example of a url field (it is not used in the widget).",
+                "placeholder": "https://....",
+                "type": "string",
+                "format": "url",
+                "maxlength": 100,
+                "default": ""
+            }
+        }
+    }
+}

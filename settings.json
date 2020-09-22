@@ -1,0 +1,11 @@
+{
+    "Display": "block",
+    "Padding": 2,
+    "FontFamily": "Courier New, Courier, monospace",
+    "FontSize": 18,
+    "BgColour": "",
+    "TxtColour": "#59B6FC",
+    "Content": "This is some <strong>example</strong> text",
+    "TextTest": "This is some test text content",
+    "DateTest": "2021-01-10"
+}
