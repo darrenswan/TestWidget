@@ -20,7 +20,7 @@
     var elementMixin = ElementMixin;
 
 /* START: LAUNCHER */
-    var html$testwidget = `<div class="test-widget">This is a test widget</div>`;
+    var html$testwidget = `<div class="test-widget"></div>`;
     var style$testwidget = `.test-widget { display: none; }`;
     
     const template$testwidget = document.createElement('template');
@@ -28,21 +28,21 @@
     class TestWidget extends elementMixin {
         constructor() {
             super(template$testwidget);
+            this.apiDomain = 'api.widg.io';
             this.widgetSettings = null;
             this.widgetId = 0;
         }
 
         static get observedAttributes() {
             return ["widgetsettings"];
-          }  attributeChangedCallback(name, oldValue, newValue) {
+        } attributeChangedCallback(name, oldValue, newValue) {
             if (oldValue === newValue) {
                 return;
             }
             this.updateWidgetSettings(newValue);
-          }
+        }
 
         updateWidgetSettings(settings) {
-            //alert(decodeURIComponent(settings));
             this.widgetSettings = JSON.parse(decodeURIComponent(settings));
             this.redrawWidget();
         }
@@ -70,14 +70,17 @@
                 return;
             }
 
+            let cssClass = this.getAttribute('class');
+            if (cssClass.indexOf('trvpro') > -1) this.apiDomain = 'app.traviopro.com';
+
             let widgetId = this.getAttribute('widgetid');
-            if (widgetId && widgetId.length > 2) {
+            if (widgetId && widgetId.length > 0) {
                 try {
                     this.widgetId = widgetId;
                     let apiHeaders = new Headers({
                         'Content-Type': 'application/json'
                     });
-                    await fetch('https://app.traviopro.com/widgetsettings/'+widgetId, { headers: apiHeaders })
+                    await fetch('https://'+this.apiDomain+'/widgetsettings/'+widgetId, { headers: apiHeaders })
                     .then(response => response.json())
                     .then(data => {
                         this.widgetSettings = data;
