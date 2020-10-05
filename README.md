@@ -7,5 +7,9 @@ This file demonstrates how a customer would add/embed the widget on the website 
 # install.json
 This is an example of the install.json file which defines both the page embed template and files (used by the Elements script) and the settings used by the widget editor within the Widg.io website for users to configure the widget settings.
 
+Install.json resources:
+- http://install.json.is/
+- https://www.cloudflare.com/apps/developer/docs/install-json
+
 # settings.json
 This is an example of how the widget settings are stored and returned by the Widg.io Widget Settings API Endpoint for an individual widgetid.
