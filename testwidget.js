@@ -63,7 +63,13 @@
                 rootEl.style.display = 'none';
             }
         }
-    
+
+        isWidgetIdValid(value) {
+            const parsed = parseInt(x, 10);
+            if (isNaN(parsed) || parsed <= 0) { return false; }
+            return true;
+        }
+
         async connectedCallback() {
             if (!('fetch' in window)) {
                 console.log('Test Widget: Fetch API not found, try including the polyfill');
@@ -74,7 +80,7 @@
             if (cssClass.indexOf('trvpro') > -1) this.apiDomain = 'app.traviopro.com';
 
             let widgetId = this.getAttribute('widgetid');
-            if (widgetId && widgetId.length > 0) {
+            if (widgetId && this.isWidgetIdValid(widgetId)) {
                 try {
                     this.widgetId = widgetId;
                     let apiHeaders = new Headers({
