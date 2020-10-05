@@ -9,7 +9,7 @@
         "body": [
             {
                 "type": "script",
-                "contents": "<test-widget widgetid=\"{{ app.widgetid }}\" class=\"trvpro-widget\"></test-widget>"
+                "contents": "<test-widget widgetid=\"{{ app.widgetid }}\" class=\"widgio-widget\"></test-widget>"
             }
         ]
     },
