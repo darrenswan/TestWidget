@@ -12,4 +12,4 @@ Install.json resources:
 - https://www.cloudflare.com/apps/developer/docs/install-json
 
 # settings.json
-This is an example of how the widget settings are stored and returned by the Widg.io Widget Settings API Endpoint for an individual widgetid.
+This is an example of how the widget settings are stored and returned by the Widg.io Widget Settings API Endpoint for an individual widgetid. It is a dictionary (string, object) that returns all stored settings of a widget (excluding Account field types as these require an API enpoint for processing)
