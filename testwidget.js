@@ -65,7 +65,7 @@
         }
 
         isWidgetIdValid(value) {
-            const parsed = parseInt(x, 10);
+            const parsed = parseInt(value, 10);
             if (isNaN(parsed) || parsed <= 0) { return false; }
             return true;
         }
