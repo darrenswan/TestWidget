@@ -65,7 +65,6 @@
                 "maximum": 40,
                 "default": 15
             },
-
             "BgColour": {
                 "order": 10,
                 "category": "Colours",
@@ -73,7 +72,7 @@
                 "description": "Colour of the widget background (leave blank for transparent).",
                 "type": "string",
                 "format": "color",
-                "default": ""
+                "default": "#00000000"
             },
             "TxtColour": {
                 "order": 11,
@@ -82,17 +81,48 @@
                 "description": "Colour of the text.",
                 "type": "string",
                 "format": "color",
-                "default": "#000000"
+                "default": "#000000FF"
             },
-
             "Content": {
                 "order": 20,
                 "category": "Content",
                 "title": "Widget Content",
                 "description": "Enter the content to show.",
                 "type": "string",
-                "format": "html",
+                "format": "richtext",
                 "default": ""
+            },
+            "AccountTest": {
+                "order": 21,
+                "category": "Services",
+                "title": "Facebook Field",
+                "description": "This is an example of a Facebook Login.",
+                "type": "object",
+                "format": "account",
+                "services": ["facebook"]
+            },
+            "ImageTest": {
+                "order": 21,
+                "category": "Content",
+                "title": "Image Field",
+                "description": "This is an example of an image upload field (it is not used in the widget).",
+                "type": "string",
+                "format": "image"
+            },
+            "UnitsTest": {
+                "order": 21,
+                "category": "Content",
+                "title": "Number Units Field",
+                "description": "This is an example of a number field with units (it is not used in the widget).",
+                "type": "object",
+                "format": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "units": ["px", "em", "%"],
+                "default": {
+                    "value": 50,
+                    "unit": "%"
+                  }
             },
             "TextTest": {
                 "order": 21,
@@ -144,11 +174,92 @@
                 "category": "Content",
                 "title": "Url Field",
                 "description": "This is an example of a url field (it is not used in the widget).",
-                "placeholder": "https://....",
+                "placeholder": "https://example.com",
                 "type": "string",
                 "format": "url",
                 "maxlength": 100,
                 "default": ""
+            },
+            "ArrowIcon": {
+                "order": 6,
+                "category": "Display",
+                "title": "Arrow Icon",
+                "description": "Select the arrow icon on the button.",
+                "type": "string",
+                "format": "icon",
+                "enum": [
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M12 0l8 9h-6v15h-4v-15h-6z\"/></svg>",
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M7 11h-6l11-11 11 11h-6v13h-10z\"/></svg>",
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M17 22v2h-10v-2h10zm0-4h-10v2h10v-2zm-10-7v5h10v-5h6l-11-11-11 11h6z\"/></svg>",
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M12 5.887l8.468 14.113h-16.936l8.468-14.113zm0-3.887l-12 20h24l-12-20z\"/></svg>",
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z\"/></svg>",
+                    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M23.677 18.52c.914 1.523-.183 3.472-1.967 3.472h-19.414c-1.784 0-2.881-1.949-1.967-3.472l9.709-16.18c.891-1.483 3.041-1.48 3.93 0l9.709 16.18z\"/></svg>",
+                    "none"
+                ],
+                "enumNames": {
+                    "none": "No icon"
+                },
+                "default": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" class=\"back-to-top-icon\"><path d=\"M12 0l8 9h-6v15h-4v-15h-6z\"/></svg>"
+            },
+            "WhatsApp": {
+                "order": 14,
+                "category": "Services",
+                "title": "WhatsApp",
+                "type": "object",
+                "properties": {
+                    "PhoneNumber": {
+                        "title": "WhatsApp Phone Number",
+                        "order": 1,
+                        "type": "string",
+                        "format": "telephone",
+                        "maxLength": 25
+                    }
+                }
+            },
+            "Messengers": {
+                "order": 14,
+                "category": "Services",
+                "title": "Messengers",
+                "description": "Set one or more messenger buttons.",
+                "type": "array",
+                "displayField": "Display",
+                "maxItems": 4,
+                "items": {
+                    "type": "object",
+                    "title": "Messenger",
+                    "properties": {
+                        "Code": {
+                            "title": "Messenger Code",
+                            "description": "Messenger identity code.",
+                            "order": 1,
+                            "type": "string",
+                            "maxLength": 20
+                        },
+                        "Display": {
+                            "title": "Messenger Name",
+                            "description": "Name of messenger.",
+                            "order": 2,
+                            "type": "string",
+                            "maxLength": 20
+                        },
+                        "Url": {
+                            "title": "Messenger Url",
+                            "description": "Url of messenger.",
+                            "order": 3,
+                            "type": "string",
+                            "maxLength": 50
+                        }
+                    }
+                },
+                "default": [{
+                    "Code": "facebook",
+                    "Display": "Facebook",
+                    "Url": "https://www.messenger.com/t/widg.io"
+                },{
+                    "Code": "whatsapp",
+                    "Display": "WhatsApp",
+                    "Url": "https://web.whatsapp.com/send?phone=447123456789"
+                }]
             }
         }
     }
