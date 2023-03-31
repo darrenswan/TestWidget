@@ -1,6 +1,6 @@
 /*!
  * 	Test Widget
- * 	Copyright (c) 2020 Agendas Group Ltd. ALL RIGHTS RESERVED
+ * 	Copyright (c) Agendas Group Ltd. ALL RIGHTS RESERVED
  */
 (function () {
     'use strict';
@@ -77,7 +77,7 @@
             }
 
             let cssClass = this.getAttribute('class');
-            if (cssClass.indexOf('trvpro') > -1) this.apiDomain = 'app.traviopro.com';
+            if (cssClass.indexOf('travelify') > -1) this.apiDomain = 'api.travelify.io';
 
             let widgetId = this.getAttribute('widgetid');
             if (widgetId && this.isWidgetIdValid(widgetId)) {
